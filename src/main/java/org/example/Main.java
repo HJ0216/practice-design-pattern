@@ -13,7 +13,8 @@ import org.example.builder2.dto.CafeDTO;
 public class Main {
 
   public static void main(String[] args) {
-    Address address = new Address("10000", "seoul", "seocho-gu");
+    Address address = new Address("10000", "seoul", "seocho");
+
     PersonDTO friend = new FriendDTO("kim", "kimi", LocalDate.of(1995, 2, 16), address);
     PersonDTO coworker = new CoworkerDTO("kim", "staff", LocalDate.of(1995, 2, 16), address);
 
@@ -29,14 +30,14 @@ public class Main {
                                                             .address(address)
                                                             .build();
 
-    CafeDTO cafeDto = CafeDTO.builder()
-                          .name("starbucks")
-                          .address(address)
-                          .signature("americano")
-                          .rating(5)
-                          .build();
+    CafeDTO cafeDTOFromBuilder = CafeDTO.builder()
+                                        .name("starbucks")
+                                        .address(address)
+                                        .signature("americano")
+                                        .rating(5)
+                                        .build();
 
-    Cafe cafe = new Cafe("two-some", new Address("12345", "seoul", "bangbae"), "milktea", 5);
+    Cafe cafe = new Cafe("two-some", address, "milktea", 5);
     CafeDTO cafeDTOFromEntity = CafeDTO.toDTO(cafe);
   }
 }
