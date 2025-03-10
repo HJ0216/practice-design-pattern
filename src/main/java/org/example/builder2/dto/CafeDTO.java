@@ -31,7 +31,7 @@ public class CafeDTO {
     }
 
     public Builder address(Address address) {
-      this.address = "(" + address.getZipCode() + ") " + address.getCity() + " " + address.getState();
+      this.address = "(" + address.getZipCode() + ") " + address.getState() + " " + address.getCity();
       return this;
     }
 
